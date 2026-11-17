@@ -66,7 +66,7 @@ Before the agent uses a risky tool, it should ask you first: “Is this OK?” Y
 
 Many things decide what the agent reads and runs. Here is the whole picture:
 
-![Gemini security overview](images/security-overview.png)
+![Gemini security overview](images/lab01_security_picture.svg)
 
 The lower half of this picture shows the sample project and the 6 risks. You will meet them in Part 5 and Part 6, so you can skip that half for now.
 

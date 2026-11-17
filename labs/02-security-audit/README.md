@@ -101,7 +101,7 @@ When a command ends, it leaves a small number behind. This audit leaves `0` if t
 
 A new VM starts empty, so first you get your work back from GitHub.
 
-![Fresh Poridhi VM terminal](images/vm-terminal.png)
+![Security audit workflow](images/lab02_security_audit.svg)
 
 ### Step 1: Tell Git who you are
 

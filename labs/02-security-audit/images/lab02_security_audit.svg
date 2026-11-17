@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 505" font-family="Segoe UI, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+<defs>
+<marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2e9e5b"/></marker>
+<marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d9972b"/></marker>
+<marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3b6fd4"/></marker>
+<marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#444"/></marker>
+<style>
+.flow{stroke-dasharray:7 6;animation:dash 0.9s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-13}}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.55}}
+</style>
+</defs>
+
+<rect width="760" height="505" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="380" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#111">How the security audit works</text>
+
+<!-- Row 1: flow -->
+<rect x="20" y="55" width="150" height="60" rx="9" fill="#f4f4f2" stroke="#444" stroke-width="2"/>
+<text x="95" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Sample project</text>
+<text x="95" y="98" text-anchor="middle" font-size="11.5" fill="#111">workspace folder</text>
+
+<rect x="210" y="55" width="150" height="60" rx="9" fill="#e8f6ee" stroke="#2e9e5b" stroke-width="2"/>
+<text x="285" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Audit tool</text>
+<text x="285" y="98" text-anchor="middle" font-size="11.5" fill="#111">inside a Docker box</text>
+
+<rect x="400" y="55" width="150" height="60" rx="9" fill="#fdf3e0" stroke="#d9972b" stroke-width="2"/>
+<text x="475" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Report</text>
+<text x="475" y="98" text-anchor="middle" font-size="11.5" fill="#111">PASS · WARN · FAIL · INFO</text>
+
+<rect x="590" y="55" width="150" height="60" rx="9" fill="#f4f4f2" stroke="#444" stroke-width="2"/>
+<text x="665" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Exit code</text>
+<text x="665" y="98" text-anchor="middle" font-size="11.5" fill="#111">echo $?</text>
+
+<line class="flow" x1="170" y1="85" x2="210" y2="85" stroke="#444" stroke-width="2.2" marker-end="url(#m-gray)"/>
+<line class="flow" x1="360" y1="85" x2="400" y2="85" stroke="#2e9e5b" stroke-width="2.2" marker-end="url(#m-green)"/>
+<line class="flow" x1="550" y1="85" x2="590" y2="85" stroke="#d9972b" stroke-width="2.2" marker-end="url(#m-amber)"/>
+
+<!-- Notes under the boxes -->
+<text x="95" y="140" text-anchor="middle" font-size="10.5" fill="#444">you run it from this folder</text>
+<text x="95" y="156" text-anchor="middle" font-size="10.5" fill="#444">cd workspace</text>
+
+<rect x="210" y="130" width="150" height="24" rx="7" fill="#e8f6ee" stroke="#2e9e5b" stroke-width="1.5"/>
+<text x="285" y="146" text-anchor="middle" font-size="11" font-weight="600" fill="#111">Offline · no network</text>
+<rect x="210" y="158" width="150" height="24" rx="7" fill="#e8f6ee" stroke="#2e9e5b" stroke-width="1.5"/>
+<text x="285" y="174" text-anchor="middle" font-size="11" font-weight="600" fill="#111">Read-only · no changes</text>
+<rect x="210" y="186" width="150" height="24" rx="7" fill="#e8f6ee" stroke="#2e9e5b" stroke-width="1.5"/>
+<text x="285" y="202" text-anchor="middle" font-size="11" font-weight="600" fill="#111">Throwaway · deleted</text>
+
+<text x="475" y="140" text-anchor="middle" font-size="10.5" fill="#444">type t to save a text report</text>
+<text x="475" y="156" text-anchor="middle" font-size="10.5" fill="#444">~/gemini-audit-reports</text>
+
+<text x="665" y="140" text-anchor="middle" font-size="10.5" font-weight="700" fill="#d64545">1 = at least one FAIL</text>
+<text x="665" y="156" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2e9e5b">0 = no FAIL</text>
+<text x="665" y="172" text-anchor="middle" font-size="10.5" fill="#444">CI uses this to stop a build</text>
+
+<!-- Section 2 -->
+<line x1="20" y1="230" x2="740" y2="230" stroke="#999" stroke-width="1.5" stroke-dasharray="4 5"/>
+<text x="380" y="252" text-anchor="middle" font-size="14" font-weight="700" fill="#111">What the audit looks at</text>
+
+<rect x="20" y="266" width="232" height="60" rx="9" fill="#e9f0fc" stroke="#3b6fd4" stroke-width="2"/>
+<text x="136" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Agent settings</text>
+<text x="136" y="308" text-anchor="middle" font-size="11" fill="#111">sandbox · folder trust · YOLO · tools</text>
+
+<rect x="264" y="266" width="232" height="60" rx="9" fill="#fdf3e0" stroke="#d9972b" stroke-width="2"/>
+<text x="380" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Outside tools</text>
+<text x="380" y="308" text-anchor="middle" font-size="11" fill="#111">MCP servers · extensions · hooks</text>
+
+<rect x="508" y="266" width="232" height="60" rx="9" fill="#f4f4f2" stroke="#444" stroke-width="2"/>
+<text x="624" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#111">Project files</text>
+<text x="624" y="308" text-anchor="middle" font-size="11" fill="#111">settings.json · .env · GEMINI.md · workflows</text>
+
+<!-- Section 3 -->
+<line x1="20" y1="346" x2="740" y2="346" stroke="#999" stroke-width="1.5" stroke-dasharray="4 5"/>
+<text x="380" y="368" text-anchor="middle" font-size="14" font-weight="700" fill="#111">How to read each line</text>
+
+<rect x="20" y="382" width="168" height="54" rx="9" fill="#e8f6ee" stroke="#2e9e5b" stroke-width="2"/>
+<text x="104" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#111">PASS</text>
+<text x="104" y="422" text-anchor="middle" font-size="11" fill="#111">fine, do nothing</text>
+
+<rect x="204" y="382" width="168" height="54" rx="9" fill="#fdf3e0" stroke="#d9972b" stroke-width="2"/>
+<text x="288" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#111">WARN</text>
+<text x="288" y="422" text-anchor="middle" font-size="11" fill="#111">could be a problem, look</text>
+
+<rect class="pulse" x="388" y="382" width="168" height="54" rx="9" fill="#fdecec" stroke="#d64545" stroke-width="2"/>
+<text x="472" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#111">FAIL</text>
+<text x="472" y="422" text-anchor="middle" font-size="11" fill="#111">real problem, plan to fix</text>
+
+<rect x="572" y="382" width="168" height="54" rx="9" fill="#e9f0fc" stroke="#3b6fd4" stroke-width="2"/>
+<text x="656" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#111">INFO</text>
+<text x="656" y="422" text-anchor="middle" font-size="11" fill="#111">good to know</text>
+
+<text x="380" y="466" text-anchor="middle" font-size="12" fill="#444" font-weight="600" font-style="italic">The number in brackets, like [4], points to the guide section that explains the fix.</text>
+<text x="380" y="484" text-anchor="middle" font-size="12" fill="#444" font-weight="600" font-style="italic">In this lab you only look. Fixing starts in Lab 03.</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo4NDU1ZmZmZS01YzY1LTQ3MTQtOTg0Ni1iNjA5MDA3ZDI0NGYAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaEd/Uw4ue/IhhhIlrQ4CZyoAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpjYzA2ZjFmYi0zNDM0LTRhMjUtOTY5OC1jZjM4MzYzMmI4MWFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoXabL8x0RpmdWN3kyWM2eXwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggwhDqRejItO07qChZ517jyCHvn4HhFCiUmlQdm1woqTOkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaKWUqjgNtuZcgblOEItCewQAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIMvAKy9kjH75SkmiGFBR2JsSk9wrxjQes3/iS1CkYUR4ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GRzLZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjg0NTVmZmZlLTVjNjUtNDcxNC05ODQ2LWI2MDkwMDdkMjQ0Zi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmMwYmZjNzQwLTU5YTktNGUzYi05NjRlLTQ1NzA5ZGY0MTY5M3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDCEOpF6Mi07TuoKFnnXuPIIe+fgeEUKJSaVB2bXCipM6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggXaRtQb+6Y5Bl9tHQQ/OtmG3GaYddI5kM+UA6kFjhNQaiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggSF6TRZErJA1UPfCfe2XYdKL5+hwAKgzU9IR75RjQmxZ0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCp4Ic8z01yS4/t0H+9fA38+7qKTon4YtHM0TTeZjd/pI1DnTJ6u6SehJMft3zv1AQmiSYNSFG9yeYxLuZR1TWA=</c2pa:manifest></metadata></svg>
