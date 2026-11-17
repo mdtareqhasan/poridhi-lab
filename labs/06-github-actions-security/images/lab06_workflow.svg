@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="960" height="650" font-family="Arial, Helvetica, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="arrGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d98b1f"/></marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d94a4a"/></marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e9a57"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="650" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="480" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#1f1f1f">Gemini in GitHub Actions: a robot that reads text from strangers</text>
+
+  <!-- Row 1: flow -->
+  <rect x="30" y="70" width="180" height="70" rx="10" fill="#f3f3f1" stroke="#444" stroke-width="2"/>
+  <text x="120" y="102" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f1f1f">Stranger</text>
+  <text x="120" y="124" text-anchor="middle" font-size="13" fill="#333">opens an issue</text>
+
+  <rect x="270" y="70" width="180" height="70" rx="10" fill="#fdf1d9" stroke="#d98b1f" stroke-width="2"/>
+  <text x="360" y="102" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f1f1f">Workflow</text>
+  <text x="360" y="124" text-anchor="middle" font-size="13" fill="#333">gemini.yml wakes up</text>
+
+  <rect x="510" y="70" width="180" height="70" rx="10" fill="#e6edfb" stroke="#3b6fd4" stroke-width="2"/>
+  <text x="600" y="102" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f1f1f">run-gemini-cli</text>
+  <text x="600" y="124" text-anchor="middle" font-size="13" fill="#333">agent, nobody watching</text>
+
+  <rect x="750" y="70" width="180" height="70" rx="10" fill="#fde8e8" stroke="#d94a4a" stroke-width="2"/>
+  <text x="840" y="102" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f1f1f">Robot's power</text>
+  <text x="840" y="124" text-anchor="middle" font-size="13" fill="#333">secrets + write access</text>
+
+  <line x1="212" y1="105" x2="266" y2="105" stroke="#444" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrGray)"/>
+  <line x1="452" y1="105" x2="506" y2="105" stroke="#d98b1f" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrAmber)"/>
+  <line x1="692" y1="105" x2="746" y2="105" stroke="#d94a4a" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrRed)"/>
+
+  <!-- captions -->
+  <g font-size="12" fill="#444" text-anchor="middle">
+    <text x="120" y="164">anyone can send text</text>
+    <text x="120" y="181">the issue body is theirs</text>
+    <text x="360" y="164">issues: opened</text>
+    <text x="360" y="181">.github/workflows/</text>
+    <text x="600" y="164">reads the issue text</text>
+    <text x="600" y="181">may run with --yolo</text>
+    <text x="840" y="164">GEMINI_API_KEY</text>
+    <text x="840" y="181">all that write-all allows</text>
+  </g>
+
+  <line x1="30" y1="205" x2="930" y2="205" stroke="#888" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+  <!-- Section 2 -->
+  <text x="480" y="236" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f1f1f">The four mistakes and the safe fix</text>
+
+  <!-- card 1 -->
+  <rect x="30" y="256" width="210" height="125" rx="10" fill="#fdf1d9" stroke="#d98b1f" stroke-width="2"/>
+  <text x="46" y="282" font-size="15" font-weight="bold" fill="#1f1f1f">1 · Too much power</text>
+  <text x="46" y="306" font-size="13" fill="#c0392b">Before: write-all</text>
+  <text x="46" y="326" font-size="13" fill="#1e7a45">After: contents: read</text>
+  <text x="46" y="343" font-size="13" fill="#1e7a45">issues: write</text>
+  <text x="46" y="368" font-size="13" font-weight="bold" fill="#b8730f">Manual check F3</text>
+
+  <!-- card 2 -->
+  <rect x="260" y="256" width="210" height="125" rx="10" fill="#fdf1d9" stroke="#d98b1f" stroke-width="2"/>
+  <text x="276" y="282" font-size="15" font-weight="bold" fill="#1f1f1f">2 · Unpinned action</text>
+  <text x="276" y="306" font-size="13" fill="#c0392b">Before: @main</text>
+  <text x="276" y="326" font-size="13" fill="#1e7a45">After: one exact SHA</text>
+  <text x="276" y="343" font-size="13" fill="#1e7a45">(or a tag)</text>
+  <text x="276" y="368" font-size="13" font-weight="bold" fill="#b8730f">Manual check F1</text>
+
+  <!-- card 3 -->
+  <rect x="490" y="256" width="210" height="125" rx="10" fill="#e6edfb" stroke="#3b6fd4" stroke-width="2"/>
+  <text x="506" y="282" font-size="15" font-weight="bold" fill="#1f1f1f">3 · No-approval mode</text>
+  <text x="506" y="306" font-size="13" fill="#c0392b">Before: --yolo</text>
+  <text x="506" y="326" font-size="13" fill="#1e7a45">After: removed</text>
+  <text x="506" y="368" font-size="13" font-weight="bold" fill="#2556b0">Audit finds it: P11</text>
+
+  <!-- card 4 -->
+  <rect x="720" y="256" width="210" height="125" rx="10" fill="#fdf1d9" stroke="#d98b1f" stroke-width="2"/>
+  <text x="736" y="282" font-size="15" font-weight="bold" fill="#1f1f1f">4 · Stranger text</text>
+  <text x="736" y="306" font-size="13" fill="#c0392b">Before: issue.body</text>
+  <text x="736" y="326" font-size="13" fill="#1e7a45">After: issue.number only</text>
+  <text x="736" y="368" font-size="13" font-weight="bold" fill="#b8730f">Manual check F2</text>
+
+  <line x1="30" y1="408" x2="930" y2="408" stroke="#888" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+  <!-- Section 3 -->
+  <text x="480" y="438" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f1f1f">What goes into the agent's prompt</text>
+
+  <rect x="30" y="458" width="400" height="92" rx="10" fill="#fde8e8" stroke="#d94a4a" stroke-width="2"/>
+  <text x="230" y="486" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f1f1f">Before: stranger text</text>
+  <text x="230" y="512" text-anchor="middle" font-size="13" fill="#333" font-family="Consolas, 'Courier New', monospace">Fix this issue: ${{ github.event.issue.body }}</text>
+  <text x="230" y="534" text-anchor="middle" font-size="12.5" fill="#444">the attacker writes your agent's instructions</text>
+
+  <line x1="434" y1="504" x2="526" y2="504" stroke="#2e9a57" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrGreen)"/>
+
+  <rect x="530" y="458" width="400" height="92" rx="10" fill="#e5f4ea" stroke="#2e9a57" stroke-width="2"/>
+  <text x="730" y="486" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f1f1f">After: only a number</text>
+  <text x="730" y="512" text-anchor="middle" font-size="13" fill="#333" font-family="Consolas, 'Courier New', monospace">Summarize issue number ${{ github.event.issue.number }}</text>
+  <text x="730" y="534" text-anchor="middle" font-size="12.5" fill="#444">a number cannot carry instructions</text>
+
+  <!-- Footer -->
+  <text x="480" y="592" text-anchor="middle" font-size="14" font-style="italic" fill="#333">Rule of thumb: a workflow that reads text from strangers is a front door. Lock it.</text>
+  <text x="480" y="615" text-anchor="middle" font-size="14" font-style="italic" fill="#333">No fix is perfect, so make the damage small if the agent is tricked.</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo5NTNiMGM1NC03ZDFkLTRhOTctYTA3Yi1hZTljYWY2N2IyZjEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaOAaRViC8PYBCseHWzn86JUAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0YzEzYzMzYS0wNTBhLTQ0MzgtOWNiYy0yMTg5MDM4MGMxMTBscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNogQGVyX3dQqfDkxLWJv0ybwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg4sniQc6tyGU090u4Q20SMJcAko+XhFs5N1be0rHEXc2kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaHTL3N+wNNiGLZP5apJfP/gAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYINbRnuYQ1ACex948plphVmYvuqtQUnkGivpXQSVSS3O9ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GR0yZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjk1M2IwYzU0LTdkMWQtNGE5Ny1hMDdiLWFlOWNhZjY3YjJmMS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjdlYjBmMThiLTlmZDktNDI1MC1iZGE2LTY5NDM3NjgyMzdmMHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDiyeJBzq3IZTT3S7hDbRIwlwCSj5eEWzk3Vt7SscRdzaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggX5VxqXDuArjcb2gvhxKHtLjAp4Sbl8BWdanoCihFTXOiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggn9Lo22H/XsY8+H3G6XkuLNVNsKteJCvFT20axk8IaiZ0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQHUyCsaubnxKy/DfWd3DDzuA9MGYsKSu5nK3AP+QKyLgWdM9jEv5egNJ2MDNKCro5tF3xsZt/PayK05YyYOyfQc=</c2pa:manifest></metadata></svg>
